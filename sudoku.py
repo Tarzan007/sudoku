@@ -7,6 +7,8 @@ class Sudoku:
     def __init__(self):
         self.board = []
         self.curAction = self.Action.ADD
+        self.curSelect = None
+        
         pass
     
     def onClick(self, table):
@@ -16,7 +18,7 @@ class Sudoku:
     def delete(self):
         pass
     
-    def add(self):
+    def add(self, ):
         pass
     
     def undo(self):
@@ -41,9 +43,11 @@ class Sudoku:
     
     
     class Block:
-        def __init__(self, blockPos):
+        def __init__(self, blockPos, locked, value):
+            # Keep track if the block can be changed
+            self.locked = locked
             # Keep track of the value in the clock
-            self.value = None
+            self.value = value
             # Keeping track of the notes on the block 
             self.notes = [0 for x in range(len(9))]
             self.blockPos = blockPos
